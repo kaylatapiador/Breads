@@ -5,6 +5,8 @@ const PORT = process.env.PORT
 //console.log(PORT)
 const app = express()
 
+app.use(express.static('public'))
+
 app.get('/',(req,res) => {
     res.send('Welcome to an Awesome App about Breads!')
 })
@@ -14,6 +16,10 @@ app.use('/breads',breadsController)
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
+})
+
+app.get('*',(req,res) => {
+    res.send('404')
 })
 
 app.set('views', __dirname + '/views')
