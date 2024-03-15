@@ -7,6 +7,10 @@ const app = express()
 
 app.use(express.static('public'))
 
+// MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
+
+
 app.get('/',(req,res) => {
     res.send('Welcome to an Awesome App about Breads!')
 })
