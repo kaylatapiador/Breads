@@ -4,6 +4,7 @@ require('dotenv').config()
 const PORT = process.env.PORT
 //console.log(PORT)
 const app = express()
+const methodOverride = require('method-override')
 
 app.use(express.static('public'))
 
