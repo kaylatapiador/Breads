@@ -5,6 +5,9 @@ const PORT = process.env.PORT
 //console.log(PORT)
 const app = express()
 const methodOverride = require('method-override')
+const mongoose = require('mongoose')
+
+
 
 app.use(express.static('public'))
 
@@ -30,3 +33,4 @@ app.get('*',(req,res) => {
 app.set('views', __dirname + '/views')
 app.set('view engine','jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('connected to mongo: ', process.env.MONGO_URI))
